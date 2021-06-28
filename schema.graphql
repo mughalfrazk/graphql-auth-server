@@ -1,0 +1,42 @@
+type User {
+  id: ID!
+  name: String!
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UserInput {
+  name: String!
+  username: String!
+  email: String!
+  password: String!
+}
+
+type UserLoggedIn {
+  user: User
+  token: String!
+}
+
+type Message {
+  message: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input Token {
+  token: String!
+}
+
+type Query {
+  name: String!
+}
+
+type Mutation {
+  createUser(input: UserInput!): User
+  login(input: LoginInput): UserLoggedIn
+  verifyEmail(input: Token): Message
+}
